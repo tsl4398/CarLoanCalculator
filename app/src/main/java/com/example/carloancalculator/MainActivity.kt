@@ -42,12 +42,12 @@ class MainActivity : AppCompatActivity() {
         val TextLoanPeriod = editTextLoanPeriod.text.toString()
         val TextInterestRate = editTextInterestRate.text.toString()
 
-        if (TextCarPrice.length > 0 && TextDownPayment.length > 0 && TextLoanPeriod.length > 0 && TextInterestRate.length > 0)
+        if (TextCarPrice.isNotBlank() && TextDownPayment.isNotBlank() && TextLoanPeriod.isNotBlank() && TextInterestRate.isNotBlank())
         {
             var interestRate = editTextInterestRate.text.toString().toDouble() / 100
 
-            var carLoan =
-                editTextCarPrice.text.toString().toDouble() - editTextDownPayment.text.toString().toDouble()
+            var carLoan = editTextCarPrice.text.toString().toDouble() - editTextDownPayment.text.toString().toDouble()
+
             var interest = carLoan * interestRate * editTextLoanPeriod.text.toString().toDouble()
 
             var carLoanInterestSum = carLoan + interest
